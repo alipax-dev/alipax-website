@@ -1,0 +1,94 @@
+/* ==========================================================================
+   ALIPAX — Animations & Effets Visuels
+   Architecture : Animations d'apparition, transitions, effets hover & accessibilité
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Animations d'apparition au défilement (Scroll Reveal)
+   -------------------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: none;
+}
+
+/* --------------------------------------------------------------------------
+   Transitions fluides
+   -------------------------------------------------------------------------- */
+.nav-links a {
+  transition: color 0.2s;
+}
+
+.nav-cta,
+.btn {
+  transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+.service-card {
+  transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+}
+
+.service-link svg {
+  transition: transform 0.2s;
+}
+
+.footer-col a {
+  transition: color 0.2s;
+}
+
+/* --------------------------------------------------------------------------
+   Effets de survol (Hover effects)
+   -------------------------------------------------------------------------- */
+.nav-links a:hover {
+  color: var(--blue-deep);
+}
+
+.nav-cta:hover,
+.btn:hover {
+  transform: translateY(-2px);
+  background: var(--blue-deep);
+  box-shadow: 0 10px 25px rgba(22, 94, 132, 0.17);
+}
+
+.btn-light:hover {
+  background: #F2F9FC;
+  color: var(--blue-deep);
+  border-color: var(--blue);
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  border-color: #B6DDEE;
+  box-shadow: var(--shadow);
+}
+
+.service-link:hover svg {
+  transform: translateX(4px);
+}
+
+.footer-col a:hover {
+  color: var(--blue);
+}
+
+/* --------------------------------------------------------------------------
+   Support de prefers-reduced-motion (Accessibilité moteur & confort visuel)
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *:before,
+  *:after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
