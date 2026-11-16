@@ -1,0 +1,1605 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ALIPAX — Digital Solutions & Software Engineering</title>
+  <meta name="description" content="ALIPAX designs and develops modern digital experiences, software solutions and web applications. Technology built with purpose.">
+  <meta name="theme-color" content="#10251d">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://alipax.dev">
+  <link rel="manifest" href="/manifest.json">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ALIPAX — Engineering the Digital Future">
+  <meta property="og:description" content="Digital solutions, software engineering and modern web experiences.">
+  <meta property="og:url" content="https://alipax.dev">
+  <meta property="og:site_name" content="ALIPAX">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --green-950: #10251d;
+      --green-900: #173629;
+      --green-800: #214a38;
+      --green-700: #286044;
+      --green-600: #397b59;
+      --green-100: #e9f0e9;
+      --green-50: #f3f6f1;
+      --ink: #17251e;
+      --muted: #68766e;
+      --cream: #f8f9f5;
+      --white: #ffffff;
+      --line: #e5eae3;
+      --radius: 18px;
+      --shadow: 0 20px 60px rgba(16, 37, 29, .08);
+      --container: 1160px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    body, button, a {
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    button:focus-visible,
+    a:focus-visible {
+      outline: 3px solid #76a88a;
+      outline-offset: 4px;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    .section {
+      padding: 112px 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--green-700);
+      font-size: .73rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 24px;
+      height: 2px;
+      background: var(--green-600);
+    }
+
+    .section-heading {
+      max-width: 650px;
+      margin-bottom: 54px;
+    }
+
+    .section-heading h2 {
+      margin-top: 18px;
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(2.15rem, 4vw, 3.45rem);
+      line-height: 1.12;
+      letter-spacing: -.055em;
+      font-weight: 700;
+    }
+
+    .section-heading p {
+      max-width: 570px;
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .accent {
+      color: var(--green-600);
+    }
+
+    /* Navigation */
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(248, 249, 245, .9);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(229, 234, 227, .85);
+    }
+
+    .nav {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      flex-shrink: 0;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      color: white;
+      background: var(--green-900);
+      font-family: "Manrope", sans-serif;
+      font-size: 1.3rem;
+      font-weight: 800;
+    }
+
+    .brand-name {
+      font-family: "Manrope", sans-serif;
+      font-size: 1.13rem;
+      letter-spacing: .12em;
+      font-weight: 800;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 31px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #536158;
+      font-size: .86rem;
+      font-weight: 600;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--green-700);
+    }
+
+    .nav-cta,
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 0;
+      border-radius: 9px;
+      background: var(--green-900);
+      color: white;
+      padding: 13px 20px;
+      font-size: .85rem;
+      font-weight: 700;
+      transition: transform .2s, background .2s, box-shadow .2s;
+    }
+
+    .nav-cta:hover,
+    .button:hover {
+      background: var(--green-700);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px rgba(23, 54, 41, .16);
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: white;
+      color: var(--green-900);
+      cursor: pointer;
+    }
+
+    /* Hero */
+
+    .hero {
+      position: relative;
+      padding: 105px 0 100px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 78% 22%, rgba(85, 133, 98, .12), transparent 31%),
+        linear-gradient(140deg, #f8f9f5 0%, #f0f4ee 100%);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -240px;
+      right: -180px;
+      width: 620px;
+      height: 620px;
+      border: 1px solid rgba(40, 96, 68, .08);
+      border-radius: 50%;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: -145px;
+      right: -85px;
+      width: 430px;
+      height: 430px;
+      border: 1px solid rgba(40, 96, 68, .08);
+      border-radius: 50%;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      align-items: center;
+      gap: 65px;
+    }
+
+    .hero-copy {
+      max-width: 640px;
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      border: 1px solid #dce6dc;
+      border-radius: 30px;
+      padding: 8px 13px;
+      background: rgba(255, 255, 255, .72);
+      color: var(--green-800);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #4e9669;
+      box-shadow: 0 0 0 4px rgba(78, 150, 105, .12);
+    }
+
+    .hero h1 {
+      margin-top: 28px;
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(3.1rem, 6vw, 5.6rem);
+      line-height: 1.02;
+      letter-spacing: -.075em;
+      font-weight: 800;
+    }
+
+    .hero h1 span {
+      color: var(--green-600);
+    }
+
+    .hero-description {
+      max-width: 520px;
+      margin-top: 26px;
+      color: #67746b;
+      font-size: 1.07rem;
+      line-height: 1.85;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 13px;
+      margin-top: 34px;
+    }
+
+    .button.secondary {
+      color: var(--green-900);
+      background: white;
+      border: 1px solid #dce5dc;
+      box-shadow: none;
+    }
+
+    .button.secondary:hover {
+      border-color: var(--green-700);
+      background: #f4f7f2;
+    }
+
+    .button svg,
+    .nav-cta svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    .hero-note {
+      margin-top: 28px;
+      color: #849087;
+      font-size: .78rem;
+      letter-spacing: .02em;
+    }
+
+    /* Hero visual */
+
+    .hero-visual {
+      position: relative;
+      min-height: 445px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .visual-glow {
+      position: absolute;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background: rgba(77, 125, 91, .14);
+      filter: blur(55px);
+    }
+
+    .visual-card {
+      position: relative;
+      width: 100%;
+      max-width: 435px;
+      min-height: 355px;
+      padding: 25px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 20px;
+      color: #e9f0e9;
+      background:
+        radial-gradient(circle at 80% 20%, rgba(95, 157, 109, .22), transparent 35%),
+        linear-gradient(145deg, #193b2d, #10251d 75%);
+      box-shadow: 0 30px 70px rgba(16, 37, 29, .25);
+      transform: rotate(2deg);
+    }
+
+    .visual-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+      padding-bottom: 18px;
+      color: #a9c0af;
+      font-size: .7rem;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+
+    .visual-dots {
+      display: flex;
+      gap: 5px;
+    }
+
+    .visual-dots i {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #668d72;
+    }
+
+    .visual-main {
+      padding-top: 30px;
+    }
+
+    .visual-overline {
+      color: #98c4a3;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .visual-main h2 {
+      margin-top: 12px;
+      font-family: "Manrope", sans-serif;
+      font-size: 2.15rem;
+      line-height: 1.12;
+      letter-spacing: -.05em;
+    }
+
+    .visual-main p {
+      max-width: 280px;
+      margin-top: 13px;
+      color: #afc2b4;
+      font-size: .82rem;
+    }
+
+    .visual-orbit {
+      position: absolute;
+      right: -50px;
+      bottom: -105px;
+      width: 250px;
+      height: 250px;
+      border: 1px solid rgba(145, 190, 153, .26);
+      border-radius: 50%;
+    }
+
+    .visual-orbit::before,
+    .visual-orbit::after {
+      content: "";
+      position: absolute;
+      inset: 28px;
+      border: 1px solid rgba(145, 190, 153, .25);
+      border-radius: 50%;
+    }
+
+    .visual-orbit::after {
+      inset: 60px;
+    }
+
+    .visual-center {
+      position: absolute;
+      right: 63px;
+      bottom: 54px;
+      width: 72px;
+      height: 72px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(160, 207, 168, .4);
+      border-radius: 20px;
+      color: #d8f0dc;
+      background: rgba(87, 138, 98, .25);
+      font-family: "Manrope", sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+    }
+
+    .floating-tag {
+      position: absolute;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 12px 15px;
+      border: 1px solid #e7ece5;
+      border-radius: 10px;
+      background: white;
+      color: var(--green-900);
+      box-shadow: var(--shadow);
+      font-size: .76rem;
+      font-weight: 700;
+    }
+
+    .floating-tag svg {
+      width: 18px;
+      height: 18px;
+      color: var(--green-600);
+    }
+
+    .tag-one {
+      top: 32px;
+      left: -25px;
+    }
+
+    .tag-two {
+      right: -20px;
+      bottom: 35px;
+    }
+
+    /* Intro strip */
+
+    .trust-strip {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: white;
+    }
+
+    .trust-inner {
+      min-height: 94px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .trust-label {
+      color: #849087;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .trust-items {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 36px;
+      color: #536158;
+      font-family: "Manrope", sans-serif;
+      font-size: .91rem;
+      font-weight: 700;
+    }
+
+    .trust-items span {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .trust-items svg {
+      width: 18px;
+      height: 18px;
+      color: var(--green-600);
+    }
+
+    /* Services */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .service-card {
+      position: relative;
+      padding: 34px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: white;
+      transition: transform .25s, border-color .25s, box-shadow .25s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: #b8cebb;
+      box-shadow: var(--shadow);
+    }
+
+    .service-number {
+      position: absolute;
+      top: 29px;
+      right: 31px;
+      color: #c4cec5;
+      font-family: "Manrope", sans-serif;
+      font-size: .8rem;
+      font-weight: 700;
+    }
+
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      color: var(--green-700);
+      background: var(--green-50);
+    }
+
+    .service-icon svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .service-card h3 {
+      margin-top: 24px;
+      font-family: "Manrope", sans-serif;
+      font-size: 1.23rem;
+      letter-spacing: -.025em;
+    }
+
+    .service-card p {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: .91rem;
+      line-height: 1.8;
+    }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 23px;
+      color: var(--green-700);
+      font-size: .82rem;
+      font-weight: 700;
+    }
+
+    .card-link:hover {
+      gap: 13px;
+    }
+
+    .card-link svg {
+      width: 15px;
+      height: 15px;
+      transition: transform .2s;
+    }
+
+    /* Philosophy */
+
+    .philosophy {
+      position: relative;
+      overflow: hidden;
+      background: var(--green-950);
+      color: white;
+    }
+
+    .philosophy::after {
+      content: "";
+      position: absolute;
+      right: -200px;
+      bottom: -400px;
+      width: 650px;
+      height: 650px;
+      border: 1px solid rgba(173, 211, 177, .13);
+      border-radius: 50%;
+      box-shadow: 0 0 0 70px rgba(173, 211, 177, .025),
+                  0 0 0 140px rgba(173, 211, 177, .02);
+    }
+
+    .philosophy .section-heading h2 {
+      color: white;
+    }
+
+    .philosophy .section-heading p {
+      color: #a9bdb0;
+    }
+
+    .philosophy .eyebrow {
+      color: #a2c5aa;
+    }
+
+    .philosophy .eyebrow::before {
+      background: #80ad8b;
+    }
+
+    .principles-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .principle {
+      padding-top: 25px;
+      border-top: 1px solid rgba(255,255,255,.18);
+    }
+
+    .principle span {
+      color: #91b99b;
+      font-size: .74rem;
+      font-weight: 700;
+      letter-spacing: .13em;
+    }
+
+    .principle h3 {
+      margin-top: 18px;
+      font-family: "Manrope", sans-serif;
+      font-size: 1.15rem;
+    }
+
+    .principle p {
+      margin-top: 12px;
+      color: #b5c7ba;
+      font-size: .87rem;
+      line-height: 1.8;
+    }
+
+    /* Process */
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .process-item {
+      padding: 26px 22px;
+      border-left: 2px solid #cbdaca;
+      background: linear-gradient(90deg, #eef3ec, transparent);
+    }
+
+    .process-item span {
+      color: var(--green-600);
+      font-family: "Manrope", sans-serif;
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+    }
+
+    .process-item h3 {
+      margin-top: 18px;
+      font-family: "Manrope", sans-serif;
+      font-size: 1.02rem;
+    }
+
+    .process-item p {
+      margin-top: 9px;
+      color: var(--muted);
+      font-size: .82rem;
+      line-height: 1.7;
+    }
+
+    /* CTA */
+
+    .cta-section {
+      padding: 0 0 112px;
+    }
+
+    .cta-panel {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 35px;
+      padding: 58px 60px;
+      border-radius: 20px;
+      color: white;
+      background:
+        radial-gradient(circle at 90% 0%, rgba(113, 164, 119, .22), transparent 35%),
+        linear-gradient(125deg, #193d2e, #10251d);
+    }
+
+    .cta-panel::after {
+      content: "";
+      position: absolute;
+      top: -160px;
+      right: 140px;
+      width: 330px;
+      height: 330px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 50%;
+      box-shadow: 0 0 0 45px rgba(255,255,255,.025),
+                  0 0 0 90px rgba(255,255,255,.02);
+    }
+
+    .cta-copy {
+      position: relative;
+      z-index: 1;
+      max-width: 620px;
+    }
+
+    .cta-copy .eyebrow {
+      color: #a9cbae;
+    }
+
+    .cta-copy .eyebrow::before {
+      background: #a9cbae;
+    }
+
+    .cta-copy h2 {
+      margin-top: 17px;
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.13;
+      letter-spacing: -.05em;
+    }
+
+    .cta-copy p {
+      margin-top: 17px;
+      color: #b9cabe;
+      font-size: .93rem;
+    }
+
+    .cta-panel .button {
+      position: relative;
+      z-index: 1;
+      flex-shrink: 0;
+      color: var(--green-950);
+      background: white;
+    }
+
+    .cta-panel .button:hover {
+      background: #e9f0e9;
+    }
+
+    /* Footer */
+
+    .footer {
+      padding: 65px 0 25px;
+      border-top: 1px solid var(--line);
+      background: white;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr .8fr .8fr;
+      gap: 50px;
+      padding-bottom: 48px;
+    }
+
+    .footer-brand p {
+      max-width: 340px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: .87rem;
+      line-height: 1.8;
+    }
+
+    .footer-col h4 {
+      margin-bottom: 19px;
+      font-family: "Manrope", sans-serif;
+      font-size: .87rem;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col li + li {
+      margin-top: 12px;
+    }
+
+    .footer-col a {
+      color: var(--muted);
+      font-size: .84rem;
+      transition: color .2s;
+    }
+
+    .footer-col a:hover {
+      color: var(--green-700);
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding-top: 23px;
+      border-top: 1px solid var(--line);
+      color: #87928a;
+      font-size: .76rem;
+    }
+
+    .footer-bottom a {
+      color: var(--green-700);
+      font-weight: 700;
+    }
+
+    /* Reveal animation */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    /* Responsive */
+
+    @media (max-width: 900px) {
+      .nav-links {
+        gap: 19px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .hero-copy {
+        max-width: 700px;
+      }
+
+      .hero-visual {
+        min-height: 390px;
+      }
+
+      .visual-card {
+        max-width: 500px;
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        width: min(100% - 36px, var(--container));
+      }
+
+      .section {
+        padding: 78px 0;
+      }
+
+      .nav {
+        min-height: 70px;
+      }
+
+      .menu-toggle {
+        display: grid;
+        place-items: center;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 69px;
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 12px 22px 20px;
+        border-bottom: 1px solid var(--line);
+        background: var(--cream);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 13px 0;
+      }
+
+      .hero {
+        padding: 76px 0 72px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.8rem, 13vw, 4.4rem);
+      }
+
+      .hero-description {
+        font-size: .98rem;
+      }
+
+      .hero-visual {
+        min-height: 350px;
+      }
+
+      .visual-card {
+        min-height: 320px;
+        padding: 21px;
+      }
+
+      .tag-one {
+        left: -5px;
+      }
+
+      .tag-two {
+        right: -5px;
+      }
+
+      .trust-inner {
+        padding: 24px 0;
+      }
+
+      .trust-items {
+        gap: 17px 22px;
+        font-size: .79rem;
+      }
+
+      .services-grid,
+      .principles-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-card {
+        padding: 27px;
+      }
+
+      .principles-grid {
+        gap: 28px;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-section {
+        padding-bottom: 78px;
+      }
+
+      .cta-panel {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 38px 28px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .hero-actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .hero-actions .button {
+        width: 100%;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-brand {
+        grid-column: auto;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "ALIPAX",
+    "url": "https://alipax.dev",
+    "description": "Digital solutions, software engineering and modern web experiences."
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <header class="header">
+    <nav class="nav container" aria-label="Main navigation">
+
+      <a class="brand" href="/" aria-label="Alipax home">
+        <span class="brand-mark">A.</span>
+        <span class="brand-name">ALIPAX</span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="navLinks">
+        <svg viewBox="0 0 24 24" width="21" height="21"
+          fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round">
+          <path d="M4 7h16M4 12h16M4 17h16"/>
+        </svg>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/a-propos">About</a></li>
+        <li><a href="/nos-services">Services</a></li>
+        <li><a href="/projets">Projects</a></li>
+        <li><a href="/technologies">Technology</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+
+      <a href="/demarrer-un-projet" class="nav-cta">
+        Let's talk
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M13 6l6 6-6 6"/>
+        </svg>
+      </a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+
+        <div class="hero-copy">
+          <div class="hero-label">
+            <span class="status-dot"></span>
+            Technology with purpose
+          </div>
+
+          <h1>
+            We build<br>
+            what comes<br>
+            <span>next.</span>
+          </h1>
+
+          <p class="hero-description">
+            ALIPAX brings technology, software engineering and thoughtful
+            design together to create digital experiences that move ideas forward.
+          </p>
+
+          <div class="hero-actions">
+            <a href="/demarrer-un-projet" class="button">
+              Start a project
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M13 6l6 6-6 6"/>
+              </svg>
+            </a>
+
+            <a href="/nos-services" class="button secondary">
+              Explore our services
+            </a>
+          </div>
+
+          <p class="hero-note">
+            Digital solutions · Software engineering · Web experiences
+          </p>
+        </div>
+
+        <div class="hero-visual" aria-label="Alipax digital design illustration">
+          <div class="visual-glow"></div>
+
+          <div class="floating-tag tag-one">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="16" rx="3"/>
+              <path d="M3 9h18M8 4v5"/>
+            </svg>
+            Digital experiences
+          </div>
+
+          <div class="visual-card">
+            <div class="visual-top">
+              <span>ALIPAX / DIGITAL STUDIO</span>
+              <span class="visual-dots"><i></i><i></i><i></i></span>
+            </div>
+
+            <div class="visual-main">
+              <span class="visual-overline">01 — Build with purpose</span>
+              <h2>Ideas into<br>digital reality.</h2>
+              <p>
+                Thoughtful engineering. Clear design. Technology made useful.
+              </p>
+            </div>
+
+            <div class="visual-orbit"></div>
+            <div class="visual-center">A.</div>
+          </div>
+
+          <div class="floating-tag tag-two">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4"/>
+            </svg>
+            Software engineering
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CAPABILITIES STRIP -->
+    <section class="trust-strip" aria-label="Areas of expertise">
+      <div class="container trust-inner">
+        <span class="trust-label">Our areas of focus</span>
+
+        <div class="trust-items">
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="15" rx="2"/>
+              <path d="M8 22h8M12 19v3M3 9h18"/>
+            </svg>
+            Web development
+          </span>
+
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/>
+            </svg>
+            Software engineering
+          </span>
+
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3 3.5 8v8L12 21l8.5-5V8L12 3Z"/>
+              <path d="m3.5 8 8.5 5 8.5-5M12 13v8"/>
+            </svg>
+            Digital products
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Who we are</span>
+          <h2>Technology should do more than work.<br>
+            It should <span class="accent">make a difference.</span>
+          </h2>
+          <p>
+            ALIPAX is a technology brand focused on building modern digital
+            solutions. We approach every challenge with curiosity, engineering
+            discipline and a focus on meaningful user experiences.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section" id="services" style="background:#fff;">
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <span class="eyebrow">What we do</span>
+          <h2>Bringing ideas to life<br>
+            through <span class="accent">technology.</span>
+          </h2>
+          <p>
+            From the first concept to the finished experience, we focus on
+            building solutions that are useful, clear and thoughtfully engineered.
+          </p>
+        </div>
+
+        <div class="services-grid">
+
+          <article class="service-card reveal">
+            <span class="service-number">01 / 04</span>
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="15" rx="2"/>
+                <path d="M3 9h18M8 4v5M9 22h6M12 19v3"/>
+              </svg>
+            </div>
+            <h3>Web Development</h3>
+            <p>
+              Modern websites and web applications built with responsive
+              layouts, accessible interfaces and attention to performance.
+            </p>
+            <a class="card-link" href="/nos-services">
+              Discover services
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M13 6l6 6-6 6"/>
+              </svg>
+            </a>
+          </article>
+
+          <article class="service-card reveal">
+            <span class="service-number">02 / 04</span>
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/>
+              </svg>
+            </div>
+            <h3>Software Engineering</h3>
+            <p>
+              Structured software solutions designed around maintainability,
+              reliability and the real requirements of each project.
+            </p>
+            <a class="card-link" href="/technologies">
+              Our approach
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M13 6l6 6-6 6"/>
+              </svg>
+            </a>
+          </article>
+
+          <article class="service-card reveal">
+            <span class="service-number">03 / 04</span>
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="8" height="8" rx="2"/>
+                <rect x="13" y="3" width="8" height="8" rx="2"/>
+                <rect x="3" y="13" width="8" height="8" rx="2"/>
+                <rect x="13" y="13" width="8" height="8" rx="2"/>
+              </svg>
+            </div>
+            <h3>Digital Products</h3>
+            <p>
+              Practical digital products that connect thoughtful design,
+              clear functionality and purposeful technology.
+            </p>
+            <a class="card-link" href="/projets">
+              Explore projects
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M13 6l6 6-6 6"/>
+              </svg>
+            </a>
+          </article>
+
+          <article class="service-card reveal">
+            <span class="service-number">04 / 04</span>
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3v3M12 18v3M3 12h3M18 12h3"/>
+                <circle cx="12" cy="12" r="5"/>
+                <path d="m16 8 3-3M5 19l3-3M16 16l3 3M5 5l3 3"/>
+              </svg>
+            </div>
+            <h3>Digital Innovation</h3>
+            <p>
+              Exploring modern tools, technologies and development practices
+              to discover better ways of solving digital challenges.
+            </p>
+            <a class="card-link" href="/a-propos">
+              About ALIPAX
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M13 6l6 6-6 6"/>
+              </svg>
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PHILOSOPHY -->
+    <section class="section philosophy">
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <span class="eyebrow">The ALIPAX mindset</span>
+          <h2>Built on principles.<br>
+            Driven by <span style="color:#9bc5a9;">purpose.</span>
+          </h2>
+          <p>
+            Good technology is not defined only by what it can do,
+            but by how thoughtfully it is designed and delivered.
+          </p>
+        </div>
+
+        <div class="principles-grid">
+          <article class="principle reveal">
+            <span>01 — CLARITY</span>
+            <h3>Think before building.</h3>
+            <p>
+              Understand the problem, define the direction and make
+              technical decisions with intention.
+            </p>
+          </article>
+
+          <article class="principle reveal">
+            <span>02 — PRECISION</span>
+            <h3>Care about the details.</h3>
+            <p>
+              Create clean interfaces and maintainable solutions
+              through thoughtful engineering.
+            </p>
+          </article>
+
+          <article class="principle reveal">
+            <span>03 — EVOLUTION</span>
+            <h3>Keep moving forward.</h3>
+            <p>
+              Learn continuously, question assumptions and improve
+              every part of the development process.
+            </p>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="section">
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <span class="eyebrow">How we approach projects</span>
+          <h2>A thoughtful process.<br>
+            <span class="accent">Better outcomes.</span>
+          </h2>
+          <p>
+            Every successful digital product begins with understanding
+            what needs to be solved.
+          </p>
+        </div>
+
+        <div class="process-grid">
+          <article class="process-item reveal">
+            <span>STEP 01</span>
+            <h3>Discover</h3>
+            <p>Understand goals, users, requirements and challenges.</p>
+          </article>
+
+          <article class="process-item reveal">
+            <span>STEP 02</span>
+            <h3>Design</h3>
+            <p>Define the experience, structure and technical direction.</p>
+          </article>
+
+          <article class="process-item reveal">
+            <span>STEP 03</span>
+            <h3>Develop</h3>
+            <p>Build, integrate and refine the digital solution.</p>
+          </article>
+
+          <article class="process-item reveal">
+            <span>STEP 04</span>
+            <h3>Improve</h3>
+            <p>Test, evaluate and continuously enhance the product.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-panel reveal">
+
+          <div class="cta-copy">
+            <span class="eyebrow">Have an idea?</span>
+            <h2>Let's build something<br>meaningful together.</h2>
+            <p>
+              Have a project, a challenge or an idea worth exploring?
+              Start a conversation with ALIPAX.
+            </p>
+          </div>
+
+          <a href="/demarrer-un-projet" class="button">
+            Start a conversation
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <a class="brand" href="/">
+            <span class="brand-mark">A.</span>
+            <span class="brand-name">ALIPAX</span>
+          </a>
+
+          <p>
+            A technology brand focused on digital solutions,
+            software engineering and meaningful digital experiences.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="/a-propos">About us</a></li>
+            <li><a href="/nos-services">Services</a></li>
+            <li><a href="/projets">Projects</a></li>
+            <li><a href="/technologies">Technology</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Information</h4>
+          <ul>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/faq">FAQ</a></li>
+            <li><a href="/mentions-legales">Legal notice</a></li>
+            <li><a href="/politique-confidentialite">Privacy policy</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span id="currentYear"></span> ALIPAX. All rights reserved.</span>
+        <a href="https://alipax.dev">alipax.dev</a>
+        <span>Engineering the digital future.</span>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    // Mobile navigation
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation menu" : "Open navigation menu"
+      );
+    });
+
+    // Close mobile menu after navigation
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
+      });
+    });
+
+    // Current year
+    document.getElementById("currentYear").textContent =
+      new Date().getFullYear();
+
+    // Progressive reveal animations
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries, currentObserver) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              currentObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+
+      revealElements.forEach((element) => observer.observe(element));
+    } else {
+      revealElements.forEach((element) => element.classList.add("visible"));
+    }
+  </script>
+
+</body>
+</html>
