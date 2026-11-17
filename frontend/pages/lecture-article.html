@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lecture Article — Blog Tech ALIPAX Burundi</title>
+    <meta name="description" content="Article technique et retour d'expérience sur l'ingénierie logicielle par l'équipe ALIPAX à Bujumbura, Burundi." />
+    <link rel="canonical" href="https://alipax.dev/lecture-article" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/assets/css/principal.css?v=1.2.1" />
+    <link rel="stylesheet" href="/assets/css/composants.css?v=1.2.1" />
+    <link rel="stylesheet" href="/assets/css/animations.css?v=1.2.1" />
+    <link rel="stylesheet" href="/assets/css/responsive.css?v=1.2.1" />
+
+    <script type="module" src="/assets/js/composants/navigation.js?v=1.2.1"></script>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav container" aria-label="Navigation principale">
+        <a class="wordmark" href="/" aria-label="ALIPAX, accueil">
+          <span class="wordmark-accent" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="wordmark-text">ALIPAX</span>
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navLinks">
+          <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="/">Accueil</a></li>
+          <li><a href="/a-propos">À propos de nous</a></li>
+          <li><a href="/nos-services">Services</a></li>
+          <li><a href="/projets">Réalisations</a></li>
+          <li><a href="/technologies">Technologies</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+        <a class="nav-cta" href="/demarrer-un-projet">Décrire mon projet ↗</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="container page-hero-inner">
+          <span class="badge-location">📍 Blog Tech · Ingénierie Logicielle</span>
+          <span class="kicker">Article Technique</span>
+          <h1 class="page-hero-title">Comment structurer une <span>base de données</span> pérenne.</h1>
+          <p class="page-hero-desc">
+            Conseils pratiques et règles de conception pour garantir la scalabilité et l'intégrité de vos données métier.
+          </p>
+        </div>
+      </section>
+
+      <section class="page-section">
+        <div class="container" style="max-width: 800px;">
+          <div class="card-pro">
+            <p style="color: var(--muted); line-height: 1.85; margin-bottom: 20px;">
+              Dans la conception d'un logiciel d'entreprise, la modélisation de la base de données est l'étape fondatrice. Une erreur commise au niveau des clés étrangères, des index ou des contraintes d'intégrité se paie cher des mois plus tard lors de la montée en charge.
+            </p>
+            <h2 style="font: 800 1.3rem 'Manrope', sans-serif; color: var(--navy); margin: 25px 0 15px;">1. Normaliser avant d'optimiser</h2>
+            <p style="color: var(--muted); line-height: 1.85; margin-bottom: 20px;">
+              Une normalisation en 3ème forme normale permet d'éliminer les redondances et d'éviter les anomalies de mise à jour. C'est la base de tout schéma relationnel sain.
+            </p>
+            <h2 style="font: 800 1.3rem 'Manrope', sans-serif; color: var(--navy); margin: 25px 0 15px;">2. Indexer avec mesure</h2>
+            <p style="color: var(--muted); line-height: 1.85; margin-bottom: 30px;">
+              Chaque index accélère la lecture mais ralentit les écritures. Il convient d'analyser vos requêtes les plus fréquentes avec <code>EXPLAIN ANALYZE</code> avant d'ajouter des index composites.
+            </p>
+            <a class="btn" href="/blog">← Retour aux articles du blog</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-bottom" style="border: 0; padding: 0;">
+          <span>© 2026 ALIPAX. Bujumbura, Burundi.</span>
+          <span><a href="/blog">Blog</a> · <a href="/contact">Contact</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

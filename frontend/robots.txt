@@ -3,3 +3,4 @@ Allow: /
 Disallow: /admin/
 
 Sitemap: https://alipax.dev/sitemap.xml
+Host: https://alipax.dev

@@ -7,9 +7,10 @@ export function initNavigation() {
   const toggle = document.getElementById('menuToggle');
   const links = document.getElementById('navLinks');
 
-  if (!toggle || !links) {
+  if (!toggle || !links || toggle.dataset.navInit === 'true') {
     return;
   }
+  toggle.dataset.navInit = 'true';
 
   // Gestionnaire d'ouverture / fermeture du menu mobile
   toggle.addEventListener('click', () => {
@@ -29,4 +30,13 @@ export function initNavigation() {
       }
     });
   });
+}
+
+// Auto-initialisation sécurisée
+if (typeof document !== 'undefined') {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initNavigation);
+  } else {
+    initNavigation();
+  }
 }

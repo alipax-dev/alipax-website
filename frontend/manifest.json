@@ -1,11 +1,13 @@
 {
-  "name": "Alipax",
-  "short_name": "Alipax",
-  "description": "Alipax - Plateforme digitale et solutions de développement moderne",
+  "name": "ALIPAX — Développement Web & Logiciel Burundi",
+  "short_name": "ALIPAX",
+  "description": "Entreprise de développement web, applications mobiles et solutions logicielles sur mesure à Bujumbura, Burundi.",
   "start_url": "/",
+  "lang": "fr",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#0f172a",
+  "background_color": "#070d18",
+  "theme_color": "#111b31",
+  "categories": ["business", "productivity", "utilities"],
   "icons": [
     {
       "src": "/favicon.ico",
