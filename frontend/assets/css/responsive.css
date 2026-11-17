@@ -176,11 +176,7 @@
     min-height: 165px;
   }
 
-  /* Section Socle Technique */
-  .tech-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
+  /* Section Socle Technique *
   /* Section Méthode */
   .method-grid {
     grid-template-columns: 1fr 1fr;
