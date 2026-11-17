@@ -63,4 +63,26 @@ if (typeof document !== 'undefined') {
     initAccueil();
   }
 }
+/**  =========================
+     TECH CAROUSEL - JAVASCRIPT
+========================= --> */
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".tech-track").forEach((track) => {
+    if (track.dataset.initialized === "true") return;
+
+    const originalGroup = track.querySelector(".tech-group");
+    if (!originalGroup) return;
+
+    const duplicateGroup = originalGroup.cloneNode(true);
+    duplicateGroup.setAttribute("aria-hidden", "true");
+
+    // Avoid duplicated images being announced by screen readers.
+    duplicateGroup.querySelectorAll("img").forEach((img) => {
+      img.setAttribute("alt", "");
+    });
+
+    track.appendChild(duplicateGroup);
+    track.dataset.initialized = "true";
+  });
+});
 
