@@ -439,6 +439,8 @@ button:focus-visible {
 }
 
 .tech-content {
+  position: relative;
+  width: 100%;
   min-width: 0;
   overflow: hidden;
 }
@@ -447,16 +449,26 @@ button:focus-visible {
   position: relative;
   width: 100%;
   overflow: hidden;
+  padding: 12px 0;
   -webkit-mask-image: linear-gradient(
-    to right, transparent, #000 8%, #000 92%, transparent
+    to right,
+    transparent 0%,
+    #000 6%,
+    #000 94%,
+    transparent 100%
   );
   mask-image: linear-gradient(
-    to right, transparent, #000 8%, #000 92%, transparent
+    to right,
+    transparent 0%,
+    #000 6%,
+    #000 94%,
+    transparent 100%
   );
 }
 
 .tech-track {
   display: flex;
+  flex-wrap: nowrap;
   width: max-content;
   animation: techScroll 55s linear infinite;
   will-change: transform;
@@ -465,9 +477,10 @@ button:focus-visible {
 .tech-group {
   display: flex;
   flex: 0 0 auto;
+  flex-wrap: nowrap;
   align-items: center;
-  gap: 18px;
-  padding-right: 18px;
+  gap: 16px;
+  padding-right: 16px;
 }
 
 .tech-carousel:hover .tech-track {
@@ -477,45 +490,76 @@ button:focus-visible {
 .tech-card {
   position: relative;
   display: flex;
-  flex: 0 0 125px;
+  flex: 0 0 128px;
+  width: 128px;
+  min-width: 128px;
+  max-width: 128px;
+  height: 128px;
+  min-height: 128px;
+  max-height: 128px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 125px;
-  gap: 13px;
-  background: rgba(255, 255, 255, 0.045);
-  border: 1px solid rgba(160, 190, 230, 0.14);
-  border-radius: 17px;
-  backdrop-filter: blur(12px);
-  transition: transform 0.35s ease, background 0.35s ease,
-              border-color 0.35s ease, box-shadow 0.35s ease;
+  gap: 12px;
+  padding: 14px 10px;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(160, 190, 230, 0.12);
+  border-radius: 18px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  user-select: none;
+  cursor: default;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+              background 0.3s ease,
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
 }
 
 .tech-card img {
   display: block;
   width: 44px;
   height: 44px;
+  max-width: 44px;
+  max-height: 44px;
   object-fit: contain;
-  transition: transform 0.35s ease;
+  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  pointer-events: none;
+}
+
+.tech-card img[alt="GitHub"] {
+  filter: invert(1);
 }
 
 .tech-card span {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  padding: 0 4px;
+  box-sizing: border-box;
   color: #e7efff;
   font-size: 12px;
-  font-weight: 750;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-align: center;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
 }
 
 .tech-card:hover {
-  transform: translateY(-9px) scale(1.04);
-  background: rgba(100, 190, 235, 0.12);
-  border-color: rgba(126, 203, 235, 0.65);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2),
-              0 0 25px rgba(93, 190, 240, 0.12);
+  z-index: 5;
+  transform: translateY(-6px);
+  background: rgba(135, 206, 235, 0.09);
+  border-color: rgba(126, 203, 235, 0.5);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3),
+              0 0 20px rgba(93, 190, 240, 0.12);
 }
 
 .tech-card:hover img {
-  transform: scale(1.18) rotate(-5deg);
+  transform: scale(1.12);
 }
 
 @keyframes techScroll {
@@ -525,10 +569,10 @@ button:focus-visible {
 
 .tech-note {
   display: flex;
-  align-items: flex-start;
-  gap: 13px;
-  margin-top: 35px;
-  padding: 18px 20px;
+  align-items: center;
+  gap: 12px;
+  margin-top: 32px;
+  padding: 16px 20px;
   background: rgba(255, 255, 255, 0.035);
   border-left: 2px solid #35d18a;
   border-radius: 0 12px 12px 0;
@@ -545,7 +589,6 @@ button:focus-visible {
   flex: 0 0 8px;
   width: 8px;
   height: 8px;
-  margin-top: 6px;
   background: #35d18a;
   border-radius: 50%;
   box-shadow: 0 0 12px #35d18a;
@@ -554,45 +597,86 @@ button:focus-visible {
 @media (max-width: 1000px) {
   .tech-grid {
     grid-template-columns: 1fr;
-    gap: 50px;
+    gap: 45px;
   }
 
   .tech .section-head {
-    max-width: 700px;
+    max-width: 650px;
+  }
+
+  .tech-card {
+    flex: 0 0 120px;
+    width: 120px;
+    min-width: 120px;
+    max-width: 120px;
+    height: 120px;
+    min-height: 120px;
+    max-height: 120px;
+    border-radius: 16px;
+    padding: 12px 8px;
+    gap: 10px;
+  }
+
+  .tech-card img {
+    width: 40px;
+    height: 40px;
+    max-width: 40px;
+    max-height: 40px;
+  }
+
+  .tech-card span {
+    font-size: 11.5px;
+    padding: 0 2px;
+  }
+
+  .tech-group {
+    gap: 14px;
+    padding-right: 14px;
   }
 }
 
 @media (max-width: 600px) {
   .tech {
-    padding: 80px 0;
+    padding: 70px 0;
   }
 
   .tech-grid {
-    gap: 40px;
+    gap: 35px;
   }
 
   .tech .section-head h2 {
-    font-size: 38px;
-    letter-spacing: -1.5px;
+    font-size: 34px;
+    letter-spacing: -1.2px;
   }
 
   .tech .section-head p {
     font-size: 14px;
+    line-height: 1.7;
   }
 
   .tech-card {
-    flex-basis: 105px;
-    height: 110px;
+    flex: 0 0 104px;
+    width: 104px;
+    min-width: 104px;
+    max-width: 104px;
+    height: 104px;
+    min-height: 104px;
+    max-height: 104px;
     border-radius: 14px;
+    padding: 10px 6px;
+    gap: 8px;
   }
 
   .tech-card img {
-    width: 36px;
-    height: 36px;
+    width: 34px;
+    height: 34px;
+    max-width: 34px;
+    max-height: 34px;
   }
 
   .tech-card span {
     font-size: 11px;
+    padding: 0 2px;
   }
 
   .tech-group {
@@ -605,7 +689,8 @@ button:focus-visible {
   }
 
   .tech-note {
-    margin-top: 25px;
+    margin-top: 24px;
+    padding: 14px 16px;
   }
 }
 

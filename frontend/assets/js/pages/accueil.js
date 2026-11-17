@@ -3,7 +3,7 @@
  * Orchestre les composants et animations spécifiques à la landing page ALIPAX.
  */
 
-import { initNavigation } from '../composants/navigation.js?v=1.2.0';
+import { initNavigation } from '../composants/navigation.js?v=1.2.1';
 
 /**
  * Met à jour dynamiquement l'année dans le copyright du footer.
@@ -81,6 +81,7 @@ function initTechCarousel() {
     duplicateGroup.querySelectorAll('img').forEach((img) => {
       img.alt = '';
       img.loading = 'eager';
+      img.decoding = 'async';
     });
 
     // Ajouter la copie à la piste.
